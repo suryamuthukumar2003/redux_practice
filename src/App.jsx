@@ -22,11 +22,9 @@ import About from './pages/About'
 import User from './pages/User'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
-
+import './App.css'
 function App() {
   return (
-    <div>
-      
       <BrowserRouter>
       <Navbar/>
       <Routes>      
@@ -36,7 +34,6 @@ function App() {
         <Route path='/user' element={<User/>}/>
         </Routes>
       </BrowserRouter>
-    </div>
   )
 }
 

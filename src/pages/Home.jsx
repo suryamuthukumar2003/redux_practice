@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { setUsers } from '../slices/userSlices';
 
 function Home() {
+  const dispatch=useDispatch();
   const [formInput, setFormInput] = useState({
     name:"",
     age:"",
@@ -15,7 +18,10 @@ function Home() {
         [name]:value,
       }
     })
-    console.log(formInput)
+  }
+  const addUser=(event)=>{
+    event.preventDefault();
+    dispatch(setUsers(formInput));
   }
   return (
     <div>
@@ -39,7 +45,7 @@ function Home() {
         <input name='contact' type='number' value={formInput.contact} onChange={handleChange}/>
         <br />
         <br />
-        <button>add</button>
+        <button onClick={addUser}>add</button>
         </form>
     </div>
   )
